@@ -1,15 +1,25 @@
 {
   "version": 1,
   "kind": "api",
-  "setup": [],
+  "setup": [
+    "python3",
+    "-B",
+    "ops.py",
+    "bootstrap",
+    "--state",
+    "var/state",
+    "--release",
+    "r1",
+    "--build-dir",
+    "var/artifacts"
+  ],
   "start": [
     "python3",
     "-B",
-    "service.py",
-    "--db",
-    "var/ledger.sqlite",
-    "--release",
-    "r1",
+    "ops.py",
+    "run",
+    "--state",
+    "var/state",
     "--host",
     "${POINTWISE_HOST}",
     "--port",
@@ -19,13 +29,17 @@
   "verify": [
     "python3",
     "-B",
-    "checks.py",
-    "normal"
+    "ops.py",
+    "verify",
+    "--state",
+    "var/state"
   ],
   "demo": [
     "python3",
     "-B",
-    "checks.py",
-    "demo"
+    "ops.py",
+    "demo",
+    "--workdir",
+    "var/demo"
   ]
 }

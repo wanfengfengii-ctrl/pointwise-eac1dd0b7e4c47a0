@@ -15,3 +15,12 @@ credentials.json
 *token*.json
 *.pem
 *.key
+
+# Local release/runtime artefacts (never part of a built release)
+var/
+*.pyz
+*.pyz.manifest.json
+*.pyz.sha256
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm

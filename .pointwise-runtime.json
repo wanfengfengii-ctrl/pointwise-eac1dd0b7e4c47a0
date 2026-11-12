@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "kind": "api",
+  "setup": [],
+  "start": [
+    "python3",
+    "-B",
+    "service.py",
+    "--db",
+    "var/ledger.sqlite",
+    "--release",
+    "r1",
+    "--host",
+    "${POINTWISE_HOST}",
+    "--port",
+    "${POINTWISE_PORT}"
+  ],
+  "readiness_path": "/health",
+  "verify": [
+    "python3",
+    "-B",
+    "checks.py",
+    "normal"
+  ],
+  "demo": [
+    "python3",
+    "-B",
+    "checks.py",
+    "demo"
+  ]
+}
